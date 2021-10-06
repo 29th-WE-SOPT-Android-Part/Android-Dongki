@@ -25,6 +25,7 @@ class SignInActivity : AppCompatActivity() {
                 if (etId.text.toString().isNotEmpty() && etPassword.text.toString().isNotEmpty()) {
                     val homeIntent = Intent(this@SignInActivity, HomeActivity::class.java)
                     startActivity(homeIntent)
+                    Toast.makeText(this@SignInActivity, "이동기님 환영합니다", Toast.LENGTH_LONG).show()
                 } else {
                     Toast.makeText(this@SignInActivity, "로그인 실패", Toast.LENGTH_LONG).show()
                 }
