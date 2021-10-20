@@ -3,6 +3,9 @@ package org.sopt.androidweek
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
+import androidx.activity.result.ActivityResult
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import org.sopt.androidweek.databinding.ActivitySignInBinding
@@ -11,6 +14,7 @@ class SignInActivity : AppCompatActivity() {
     private val binding: ActivitySignInBinding by lazy {
         DataBindingUtil.setContentView(this, R.layout.activity_sign_in)
     }
+    private lateinit var getResult: ActivityResultLauncher<Intent>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -18,8 +22,14 @@ class SignInActivity : AppCompatActivity() {
         val getIntent = intent
 
         binding.apply {
-            etId.setText(getIntent.getStringExtra("id"))
-            etPassword.setText(getIntent.getStringExtra("password"))
+            getResult = registerForActivityResult(
+                ActivityResultContracts.StartActivityForResult()
+            ) { result ->
+                if (result.resultCode == RESULT_OK) {
+                    etId.setText(result.data?.getStringExtra("id"))
+                    etPassword.setText(result.data?.getStringExtra("password"))
+                }
+            }
 
             btnLogin.setOnClickListener {
                 if (etId.text.isNotEmpty() && etPassword.text.isNotEmpty()) {
@@ -32,7 +42,7 @@ class SignInActivity : AppCompatActivity() {
             }
             btnRegister.setOnClickListener {
                 val signUpIntent = Intent(this@SignInActivity, SignUpActivity::class.java)
-                startActivity(signUpIntent)
+                getResult.launch(signUpIntent)
             }
         }
     }

@@ -16,16 +16,14 @@ class SignUpActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding.apply {
             btnRegisterComplete.setOnClickListener {
-                if (etId.text.toString().isNotEmpty() && etName.text.toString()
-                        .isNotEmpty() && etPassword.text.toString().isNotEmpty()
+                if (etId.text.isNotEmpty() && etName.text.isNotEmpty() && etPassword.text.isNotEmpty()
                 ) {
-                    val intent = Intent(this@SignUpActivity, SignInActivity::class.java)
-                    intent.apply {
+                    val intent = Intent(this@SignUpActivity, SignInActivity::class.java).apply {
                         putExtra("id", etId.text.toString())
                         putExtra("password", etPassword.text.toString())
                     }
-                    startActivity(intent)
-                    finish()
+                    setResult(RESULT_OK, intent)
+                    if(!isFinishing)finish()
                 } else {
                     Toast.makeText(this@SignUpActivity, "입력되지 않은 정보가 있습니다", Toast.LENGTH_LONG)
                         .show()
