@@ -1,32 +1,31 @@
 package org.sopt.androidweek.viewmodel
 
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import org.sopt.androidweek.R
 
 class HomeViewModel() : ViewModel() {
-    val name = MutableLiveData<String>()
-    val age = MutableLiveData<String>()
-    val mbti = MutableLiveData<String>()
-    val pr = MutableLiveData<String>()
-    val image = MutableLiveData<Int>()
+    private val _name = MutableLiveData<String>(DONGGI_NAME)
+    val name: LiveData<String>
+        get() = _name
 
-    init {
-        textSetting()
-    }
+    private val _age = MutableLiveData<String>(DONGGI_AGE)
+    val age: LiveData<String>
+        get() = _age
 
-    fun textSetting() {
-        name.value = DONGGI_NAME
-        age.value = DONGGI_AGE
-        mbti.value = DONGGI_MBTI
-        pr.value = DONGGI_PR
-        image.value = getImageresource()
+    private val _mbti = MutableLiveData<String>(DONGGI_MBTI)
+    val mbti: LiveData<String>
+        get() = _mbti
 
-    }
+    private val _pr = MutableLiveData<String>(DONGGI_PR)
+    val pr: LiveData<String>
+        get() = _pr
 
-    fun getImageresource(): Int {
-        return R.drawable.profile
-    }
+
+    private val _image = MutableLiveData<Int>(R.drawable.profile)
+    val image: LiveData<Int>
+        get() = _image
 
     companion object {
         private val DONGGI_NAME = "이동기"

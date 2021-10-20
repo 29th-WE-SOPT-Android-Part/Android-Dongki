@@ -15,14 +15,14 @@ class SignInActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        var getIntent = intent
+        val getIntent = intent
 
         binding.apply {
             etId.setText(getIntent.getStringExtra("id"))
             etPassword.setText(getIntent.getStringExtra("password"))
 
             btnLogin.setOnClickListener {
-                if (etId.text.toString().isNotEmpty() && etPassword.text.toString().isNotEmpty()) {
+                if (etId.text.isNotEmpty() && etPassword.text.isNotEmpty()) {
                     val homeIntent = Intent(this@SignInActivity, HomeActivity::class.java)
                     startActivity(homeIntent)
                     Toast.makeText(this@SignInActivity, "이동기님 환영합니다", Toast.LENGTH_LONG).show()

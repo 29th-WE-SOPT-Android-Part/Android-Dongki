@@ -45,12 +45,13 @@
         <EditText
             android:id="@+id/etId"
             android:layout_width="0dp"
-            android:layout_height="60dp"
+            android:layout_height="wrap_content"
             android:layout_marginLeft="40dp"
             android:layout_marginTop="10dp"
             android:layout_marginRight="40dp"
-            android:background="@drawable/round_only_pink"
+            android:background="@drawable/roundonly_pink"
             android:hint="아이디를 입력해주세요"
+            android:padding="10dp"
             android:paddingLeft="15dp"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
@@ -67,15 +68,15 @@
             app:layout_constraintLeft_toLeftOf="@id/tvId"
             app:layout_constraintTop_toBottomOf="@+id/etId" />
 
-
         <EditText
             android:id="@+id/etPassword"
             android:layout_width="0dp"
-            android:layout_height="60dp"
+            android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:background="@drawable/round_only_pink"
+            android:background="@drawable/roundonly_pink"
             android:hint="비밀번호를 입력해주세요"
             android:inputType="textPassword"
+            android:padding="10dp"
             android:paddingLeft="15dp"
             app:layout_constraintLeft_toLeftOf="@id/tvId"
             app:layout_constraintRight_toRightOf="@id/etId"
