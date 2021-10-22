@@ -6,12 +6,8 @@
 
         <variable
             name="homeViewModel"
-            type="org.sopt.androidweek.viewmodel.HomeViewModel" />
+            type="org.sopt.androidweek.home.HomeViewModel" />
     </data>
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -21,7 +17,7 @@
                 android:id="@+id/tvSoptHub"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="20dp"
                 android:text="SoptHub"
                 android:textColor="@color/pink"
                 android:textSize="40sp"
@@ -34,20 +30,20 @@
                 android:id="@+id/ivProfile"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                android:layout_marginTop="50dp"
+                android:layout_marginTop="20dp"
                 app:image="@{homeViewModel.image}"
                 app:layout_constraintDimensionRatio="1"
                 app:layout_constraintLeft_toLeftOf="@id/tvSoptHub"
                 app:layout_constraintRight_toRightOf="@id/tvSoptHub"
-                app:layout_constraintTop_toBottomOf="@+id/tvSoptHub"></ImageView>
+                app:layout_constraintTop_toBottomOf="@+id/tvSoptHub"/>
 
             <TextView
                 android:id="@+id/tvName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="30dp"
-                android:text="이름"
-                android:textSize="20dp"
+                android:layout_margin="10dp"
+                android:text="@string/name"
+                android:textSize="20sp"
                 android:textStyle="bold"
                 app:layout_constraintLeft_toLeftOf="@id/ivProfile"
                 app:layout_constraintTop_toBottomOf="@+id/ivProfile" />
@@ -56,7 +52,7 @@
                 android:id="@+id/tvInputName"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="30dp"
+                android:layout_margin="10dp"
                 android:text="@{homeViewModel.name}"
                 android:textSize="20dp"
                 android:textStyle="bold"
@@ -67,9 +63,9 @@
                 android:id="@+id/tvAge"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="30dp"
-                android:text="나이"
-                android:textSize="20dp"
+                android:layout_margin="10dp"
+                android:text="@string/age"
+                android:textSize="20sp"
                 android:textStyle="bold"
                 app:layout_constraintLeft_toLeftOf="@id/ivProfile"
                 app:layout_constraintTop_toBottomOf="@+id/tvInputName" />
@@ -78,9 +74,9 @@
                 android:id="@+id/tvInputAge"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="30dp"
+                android:layout_margin="10dp"
                 android:text="@{homeViewModel.age}"
-                android:textSize="20dp"
+                android:textSize="20sp"
                 android:textStyle="bold"
                 app:layout_constraintLeft_toRightOf="@id/tvName"
                 app:layout_constraintTop_toBottomOf="@+id/tvInputName" />
@@ -89,9 +85,9 @@
                 android:id="@+id/tvMbti"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="30dp"
-                android:text="MBTI"
-                android:textSize="20dp"
+                android:layout_margin="10dp"
+                android:text="@string/mbit"
+                android:textSize="20sp"
                 android:textStyle="bold"
                 app:layout_constraintLeft_toLeftOf="@id/ivProfile"
                 app:layout_constraintTop_toBottomOf="@+id/tvAge" />
@@ -100,9 +96,9 @@
                 android:id="@+id/tvInputMbti"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_margin="30dp"
+                android:layout_margin="10dp"
                 android:text="@{homeViewModel.mbti}"
-                android:textSize="20dp"
+                android:textSize="20sp"
                 android:textStyle="bold"
                 app:layout_constraintLeft_toRightOf="@id/tvName"
                 app:layout_constraintTop_toBottomOf="@+id/tvAge" />
@@ -111,26 +107,42 @@
                 android:id="@+id/tvPr"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
+                android:layout_marginTop="10dp"
                 android:text="@{homeViewModel.pr}"
-                android:textSize="20dp"
+                android:textSize="20sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/tvMbti" />
 
             <Button
-                android:id="@+id/btnGit"
+                android:id="@+id/btnFollower"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="30dp"
-                android:text="뀨"
-                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="10dp"
+                android:text="@string/follower_list"
+                app:layout_constraintEnd_toEndOf="@id/btnRepository"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/tvPr" />
 
+            <Button
+                android:id="@+id/btnRepository"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:text="@string/repository_list"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/btnFollower"
+                app:layout_constraintTop_toBottomOf="@id/tvPr" />
+
+            <androidx.fragment.app.FragmentContainerView
+                android:id="@+id/container_home"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/btnFollower" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
-
-    </ScrollView>
 
 </layout>

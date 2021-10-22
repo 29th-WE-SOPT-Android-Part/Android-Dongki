@@ -1,4 +1,4 @@
-package org.sopt.androidweek.viewmodel
+package org.sopt.androidweek.home
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
