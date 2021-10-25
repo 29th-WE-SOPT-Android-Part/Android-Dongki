@@ -3,12 +3,14 @@ package org.sopt.androidweek.home
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import org.sopt.androidweek.databinding.ListItemRepositoryBinding
 import org.sopt.androidweek.util.BindingRecyclerViewAdapter
 
 class RepositoryAdapter(private val clickListener: (RepositoryDao) -> Unit) :
-    RecyclerView.Adapter<RepositoryAdapter.ViewHolder>(),
+    ListAdapter<RepositoryDao, RepositoryAdapter.ViewHolder>(RepositoryAdapter.diffUtil),
     BindingRecyclerViewAdapter<List<RepositoryDao>> {
     private var repositoryList = emptyList<RepositoryDao>()
 
@@ -46,9 +48,18 @@ class RepositoryAdapter(private val clickListener: (RepositoryDao) -> Unit) :
         }
     }
 
-    @SuppressLint("NotifyDataSetChanged")
     override fun setData(data: List<RepositoryDao>) {
         repositoryList = data
-        notifyDataSetChanged()
+        submitList(data)
+    }
+
+    companion object {
+        val diffUtil = object: DiffUtil.ItemCallback<RepositoryDao>() {
+            override fun areContentsTheSame(oldItem: RepositoryDao, newItem: RepositoryDao) =
+                oldItem == newItem
+
+            override fun areItemsTheSame(oldItem: RepositoryDao, newItem: RepositoryDao) =
+                oldItem.title == newItem.title
+        }
     }
 }

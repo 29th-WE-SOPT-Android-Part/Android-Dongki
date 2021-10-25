@@ -9,5 +9,8 @@
     <string name="repository_list">레포지토리\n목록</string>
     <string name="label_introduce">자기소개</string>
 
+    <!-- DetailActivity -->
+    <string name="detail">상세 소개</string>
+
 
 </resources>

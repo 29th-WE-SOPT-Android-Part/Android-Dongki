@@ -1,21 +1,23 @@
 package org.sopt.androidweek.home
 
-import androidx.lifecycle.ViewModelProvider
+import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import org.sopt.androidweek.DetailActivity
 import org.sopt.androidweek.R
 import org.sopt.androidweek.databinding.FollowerFragmentBinding
+import org.sopt.androidweek.util.BaseFragment
+import org.sopt.androidweek.util.VerticalItemDecorator
 
-class FollowerFragment : Fragment() {
-
+class FollowerFragment : BaseFragment<FollowerFragmentBinding>(R.layout.follower_fragment) {
     private val followerViewModel by viewModels<FollowerViewModel>()
-
-    private val followerAdapter = FollowerAdapter() {
-        // TODO: 클릭 시 followerDao 인자를 DetailActivity로 넘기기
+    private val followerAdapter = FollowerAdapter() { follower ->
+        val intent = Intent(requireContext(),DetailActivity::class.java)
+        intent.putExtra(FOLLOWER_DAO,follower)
+        startActivity(intent)
     }
 
     override fun onCreateView(
@@ -23,16 +25,16 @@ class FollowerFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        val binding = FollowerFragmentBinding.inflate(
-            inflater,
-            container,
-            false
-        ).apply {
+        super.onCreateView(inflater, container, savedInstanceState)
+        binding.apply {
             followerViewModel = this@FollowerFragment.followerViewModel
-            lifecycleOwner = this@FollowerFragment
             followerListRecyclerView.adapter = followerAdapter
+            followerListRecyclerView.addItemDecoration(VerticalItemDecorator(10))
         }
         return binding.root
     }
 
+    companion object{
+        const val FOLLOWER_DAO = "followerDao"
+    }
 }

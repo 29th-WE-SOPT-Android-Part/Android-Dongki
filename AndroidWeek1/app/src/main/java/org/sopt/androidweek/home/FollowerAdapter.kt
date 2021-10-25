@@ -3,12 +3,14 @@ package org.sopt.androidweek.home
 import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import org.sopt.androidweek.databinding.ListItemFollwerBinding
 import org.sopt.androidweek.util.BindingRecyclerViewAdapter
 
 class FollowerAdapter(private val clickListener: (FollowerDao) -> Unit) :
-    RecyclerView.Adapter<FollowerAdapter.ViewHolder>(),
+    ListAdapter<FollowerDao,FollowerAdapter.ViewHolder>(diffUtil),
     BindingRecyclerViewAdapter<List<FollowerDao>> {
     private var followerList = emptyList<FollowerDao>()
 
@@ -46,9 +48,18 @@ class FollowerAdapter(private val clickListener: (FollowerDao) -> Unit) :
         }
     }
 
-    @SuppressLint("NotifyDataSetChanged")
     override fun setData(data: List<FollowerDao>) {
         followerList = data
-        notifyDataSetChanged()
+        submitList(data)
     }
+    companion object {
+        val diffUtil = object: DiffUtil.ItemCallback<FollowerDao>() {
+            override fun areContentsTheSame(oldItem: FollowerDao, newItem: FollowerDao) =
+                oldItem == newItem
+
+            override fun areItemsTheSame(oldItem: FollowerDao, newItem: FollowerDao) =
+                oldItem.name == newItem.name
+        }
+    }
+
 }
