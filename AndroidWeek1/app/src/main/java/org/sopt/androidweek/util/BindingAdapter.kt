@@ -3,6 +3,7 @@ package org.sopt.androidweek.util
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 
 @BindingAdapter("app:image")
 fun ImageView.setImage(drawable: Int) {

@@ -5,16 +5,22 @@
     <data>
 
         <variable
-            name="homeViewModel"
-            type="org.sopt.androidweek.home.HomeViewModel" />
+            name="home"
+            type="org.sopt.androidweek.home.HomeFragment" />
     </data>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
+            <androidx.viewpager2.widget.ViewPager2
+                android:id="@+id/viewpagerHome"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            </androidx.viewpager2.widget.ViewPager2>
 
             <com.google.android.material.bottomnavigation.BottomNavigationView
-                android:id="@+id/bnv_home"
+                android:id="@+id/bottomNavHome"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:background="@color/white"
