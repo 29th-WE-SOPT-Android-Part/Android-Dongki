@@ -7,30 +7,16 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/tvSoptHub"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:layout_marginBottom="10dp"
-            android:text="SoptHub"
-            android:textColor="@color/pink"
-            android:textSize="40sp"
-            android:textStyle="bold"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
             android:id="@+id/tvRegistration"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="60dp"
+            android:layout_marginLeft="40dp"
             android:text="회원가입"
-            android:textSize="20dp"
+            android:textSize="30dp"
             android:textStyle="bold"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvSoptHub" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/tvName"
@@ -49,7 +35,7 @@
             android:layout_marginLeft="40dp"
             android:layout_marginTop="10dp"
             android:layout_marginRight="40dp"
-            android:background="@drawable/roundonly_pink"
+            android:background="@drawable/edit_radius"
             android:hint="이름을 입력해주세요"
             android:padding="10dp"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -61,7 +47,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
-            android:text="아이디"
+            android:text="깃허브 아이디"
             android:textSize="20dp"
             app:layout_constraintLeft_toLeftOf="@id/etId"
             app:layout_constraintTop_toBottomOf="@+id/etName" />
@@ -73,7 +59,7 @@
             android:layout_marginLeft="40dp"
             android:layout_marginTop="10dp"
             android:layout_marginRight="40dp"
-            android:background="@drawable/roundonly_pink"
+            android:background="@drawable/edit_radius"
             android:hint="아이디를 입력해주세요"
             android:padding="10dp"
             app:layout_constraintLeft_toLeftOf="parent"
@@ -96,7 +82,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:background="@drawable/roundonly_pink"
+            android:background="@drawable/edit_radius"
             android:hint="비밀번호를 입력해주세요"
             android:inputType="textPassword"
             android:padding="10dp"
@@ -109,7 +95,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:background="@drawable/background_pink"
-            android:text="회원가입 완료"
+            android:text="회원가입"
             android:textColor="@color/white"
             android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
