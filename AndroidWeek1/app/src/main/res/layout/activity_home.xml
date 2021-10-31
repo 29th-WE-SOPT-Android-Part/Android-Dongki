@@ -13,135 +13,15 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-            <TextView
-                android:id="@+id/tvSoptHub"
-                android:layout_width="wrap_content"
+            <com.google.android.material.bottomnavigation.BottomNavigationView
+                android:id="@+id/bnv_home"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:text="SoptHub"
-                android:textColor="@color/pink"
-                android:textSize="40sp"
-                android:textStyle="bold"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
-
-            <ImageView
-                android:id="@+id/ivProfile"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
-                android:layout_marginTop="20dp"
-                app:image="@{homeViewModel.image}"
-                app:layout_constraintDimensionRatio="1"
-                app:layout_constraintLeft_toLeftOf="@id/tvSoptHub"
-                app:layout_constraintRight_toRightOf="@id/tvSoptHub"
-                app:layout_constraintTop_toBottomOf="@+id/tvSoptHub"/>
-
-            <TextView
-                android:id="@+id/tvName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:text="@string/name"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                app:layout_constraintLeft_toLeftOf="@id/ivProfile"
-                app:layout_constraintTop_toBottomOf="@+id/ivProfile" />
-
-            <TextView
-                android:id="@+id/tvInputName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:text="@{homeViewModel.name}"
-                android:textSize="20dp"
-                android:textStyle="bold"
-                app:layout_constraintLeft_toRightOf="@id/tvName"
-                app:layout_constraintTop_toBottomOf="@+id/ivProfile" />
-
-            <TextView
-                android:id="@+id/tvAge"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:text="@string/age"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                app:layout_constraintLeft_toLeftOf="@id/ivProfile"
-                app:layout_constraintTop_toBottomOf="@+id/tvInputName" />
-
-            <TextView
-                android:id="@+id/tvInputAge"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:text="@{homeViewModel.age}"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                app:layout_constraintLeft_toRightOf="@id/tvName"
-                app:layout_constraintTop_toBottomOf="@+id/tvInputName" />
-
-            <TextView
-                android:id="@+id/tvMbti"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:text="@string/mbit"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                app:layout_constraintLeft_toLeftOf="@id/ivProfile"
-                app:layout_constraintTop_toBottomOf="@+id/tvAge" />
-
-            <TextView
-                android:id="@+id/tvInputMbti"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:text="@{homeViewModel.mbti}"
-                android:textSize="20sp"
-                android:textStyle="bold"
-                app:layout_constraintLeft_toRightOf="@id/tvName"
-                app:layout_constraintTop_toBottomOf="@+id/tvAge" />
-
-            <TextView
-                android:id="@+id/tvPr"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="@{homeViewModel.pr}"
-                android:textSize="20sp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/tvMbti" />
-
-            <Button
-                android:id="@+id/btnFollower"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="@string/follower_list"
-                app:layout_constraintEnd_toEndOf="@id/btnRepository"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/tvPr" />
-
-            <Button
-                android:id="@+id/btnRepository"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:text="@string/repository_list"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="@+id/btnFollower"
-                app:layout_constraintTop_toBottomOf="@id/tvPr" />
-
-            <androidx.fragment.app.FragmentContainerView
-                android:id="@+id/container_home"
-                android:layout_width="0dp"
-                android:layout_height="0dp"
+                android:background="@color/white"
+                app:itemIconTint="@color/selector_menu"
+                app:itemTextColor="@color/selector_menu"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/btnFollower" />
+                app:menu="@menu/nav_menu" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 
