@@ -3,12 +3,12 @@ package org.sopt.androidweek
 import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
-import androidx.activity.result.ActivityResult
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import org.sopt.androidweek.databinding.ActivitySignInBinding
+import org.sopt.androidweek.home.HomeActivity
 
 class SignInActivity : AppCompatActivity() {
     private val binding: ActivitySignInBinding by lazy {
