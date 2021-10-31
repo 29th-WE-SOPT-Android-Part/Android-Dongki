@@ -8,4 +8,11 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
     <color name="pink">#FF3399</color>
+    <color name="gray_1">#333333</color>
+    <color name="gray_3">#828282</color>
+    <color name="gray_6">#F2F2F2</color>
+    <color name="main_pink">#f658a6</color>
+    <color name="pink_pop">#FA79B0</color>
+    <color name="pink_power">#F658A6</color>
+    <color name="orange">#FAB24C</color>
 </resources>
