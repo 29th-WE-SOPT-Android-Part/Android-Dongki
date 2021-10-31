@@ -10,7 +10,7 @@
             android:id="@+id/imgGithub"
             android:layout_width="65dp"
             android:layout_height="65dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="40dp"
             android:layout_marginBottom="10dp"
             android:src="@drawable/icon_github"
             android:textSize="40sp"
