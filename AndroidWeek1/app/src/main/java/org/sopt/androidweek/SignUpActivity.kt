@@ -19,8 +19,8 @@ class SignUpActivity : AppCompatActivity() {
                 if (etId.text.isNotEmpty() && etName.text.isNotEmpty() && etPassword.text.isNotEmpty()
                 ) {
                     val intent = Intent(this@SignUpActivity, SignInActivity::class.java).apply {
-                        putExtra("id", etId.text.toString())
-                        putExtra("password", etPassword.text.toString())
+                        putExtra("id", etId.text)
+                        putExtra("password", etPassword.text)
                     }
                     setResult(RESULT_OK, intent)
                     if(!isFinishing)finish()
