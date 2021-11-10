@@ -1,4 +1,4 @@
-package org.sopt.androidweek
+package org.sopt.androidweek.sign
 
 import android.content.Intent
 import android.os.Bundle
@@ -7,6 +7,7 @@ import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import org.sopt.androidweek.R
 import org.sopt.androidweek.databinding.ActivitySignInBinding
 import org.sopt.androidweek.home.HomeActivity
 
