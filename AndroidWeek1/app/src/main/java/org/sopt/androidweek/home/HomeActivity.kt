@@ -4,11 +4,12 @@ import android.os.Bundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
+import androidx.viewpager2.widget.ViewPager2
 import org.sopt.androidweek.R
 import org.sopt.androidweek.databinding.ActivityHomeBinding
 
 class HomeActivity : AppCompatActivity() {
-    private var position = FOLLOWER_POSITION
+    private lateinit var homeActivityViewpagerAdapter: HomeActivityViewpagerAdapter
     private val binding: ActivityHomeBinding by lazy {
         DataBindingUtil.setContentView(this, R.layout.activity_home)
     }
@@ -19,49 +20,48 @@ class HomeActivity : AppCompatActivity() {
 
         binding.apply {
             lifecycleOwner = this@HomeActivity
-            this.homeViewModel = this@HomeActivity.homeViewModel
-            initTransactionEvent()
         }
+        initViewPager()
+        initBottomNavigation()
     }
 
-    private fun initTransactionEvent() {
-        val followerFragment = FollowerFragment()
-        val repositoryFragment = RepositoryFragment()
+    private fun initViewPager() {
+        val fragmentList = listOf(ProfileFragment(), HomeFragment())
 
-        supportFragmentManager.beginTransaction().add(R.id.container_home, followerFragment)
-            .commit()
-        binding.btnFollower.setOnClickListener {
-            val transaction = supportFragmentManager.beginTransaction()
+        homeActivityViewpagerAdapter = HomeActivityViewpagerAdapter(this)
+        homeActivityViewpagerAdapter.fragmentList.addAll(fragmentList)
+        binding.viewpagerHome.adapter = homeActivityViewpagerAdapter
+    }
 
-            when (position) {
-                FOLLOWER_POSITION -> {
+    private fun initBottomNavigation() {
+        binding.apply {
+            viewpagerHome.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
+                override fun onPageSelected(position: Int) {
+                    bottomNavHome.menu.getItem(position).isChecked = true
                 }
-                REPOSITORY_POSITION -> {
-                    transaction.replace(R.id.container_home, followerFragment)
-                    position = FOLLOWER_POSITION
+            })
+            bottomNavHome.setOnNavigationItemSelectedListener {
+                when (it.itemId) {
+                    R.id.navigation_menu_profile -> {
+                        viewpagerHome.currentItem = FIRST_FRAGMENT
+                        true
+                    }
+                    R.id.navigation_menu_home -> {
+                        viewpagerHome.currentItem = SECOND_FRAGMENT
+                        true
+                    }
+
+                    else -> {
+                        true
+                    }
                 }
             }
-            transaction.commit()
-        }
-
-        binding.btnRepository.setOnClickListener {
-            val transaction = supportFragmentManager.beginTransaction()
-
-            when (position) {
-                FOLLOWER_POSITION -> {
-                    transaction.replace(R.id.container_home, repositoryFragment)
-                    position = REPOSITORY_POSITION
-                }
-                REPOSITORY_POSITION -> {
-                }
-            }
-            transaction.commit()
         }
     }
 
     companion object {
-        const val FOLLOWER_POSITION = 1
-        const val REPOSITORY_POSITION = 2
+        const val FIRST_FRAGMENT = 0
+        const val SECOND_FRAGMENT = 1
     }
 
 }

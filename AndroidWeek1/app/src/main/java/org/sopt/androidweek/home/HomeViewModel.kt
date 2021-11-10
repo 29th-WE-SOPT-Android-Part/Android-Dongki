@@ -10,13 +10,9 @@ class HomeViewModel() : ViewModel() {
     val name: LiveData<String>
         get() = _name
 
-    private val _age = MutableLiveData<String>(DONGGI_AGE)
-    val age: LiveData<String>
-        get() = _age
-
-    private val _mbti = MutableLiveData<String>(DONGGI_MBTI)
-    val mbti: LiveData<String>
-        get() = _mbti
+    private val _id = MutableLiveData<String>(DONGGI_ID)
+    val id: LiveData<String>
+        get() = _id
 
     private val _pr = MutableLiveData<String>(DONGGI_PR)
     val pr: LiveData<String>
@@ -29,8 +25,7 @@ class HomeViewModel() : ViewModel() {
 
     companion object {
         private val DONGGI_NAME = "이동기"
-        private val DONGGI_AGE = "26"
-        private val DONGGI_MBTI = "ISFP"
+        private val DONGGI_ID = "rkdmf1026"
         private val DONGGI_PR = "안녕 날 소개하지 이름은 이동기 직"
     }
 }
