@@ -1,6 +1,8 @@
 package org.sopt.androidweek.repository.network.api
 
+import org.sopt.androidweek.repository.dto.request.SignInRequest
 import org.sopt.androidweek.repository.dto.request.SignUpRequest
+import org.sopt.androidweek.repository.dto.response.SignInResponse
 import org.sopt.androidweek.repository.dto.response.SignUpResponse
 import retrofit2.Response
 import retrofit2.http.Body
@@ -14,6 +16,6 @@ interface SampleService {
 
     @POST("user/login")
     suspend fun requestLogIn(
-        @Body body: SignUpRequest
-    ): SignUpResponse
+        @Body body: SignInRequest
+    ): SignInResponse
 }

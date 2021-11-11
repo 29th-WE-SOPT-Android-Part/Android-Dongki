@@ -105,7 +105,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:background="@drawable/background_pink"
-            android:onClick="@{() -> signUpViewModel.checkLogin()}"
+            android:onClick="@{() -> signUpViewModel.checkEdit()}"
             android:text="회원가입"
             android:textColor="@color/white"
             android:textStyle="bold"

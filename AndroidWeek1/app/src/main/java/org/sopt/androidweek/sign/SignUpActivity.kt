@@ -24,16 +24,16 @@ class SignUpActivity : AppCompatActivity() {
             lifecycleOwner = this@SignUpActivity
             this.signUpViewModel = viewModel
 
-            viewModel.loginCheck.observe(this@SignUpActivity) {
-                if (it == true)
+            viewModel.editStatus.observe(this@SignUpActivity) {
+                if (it)
                     Toast.makeText(this@SignUpActivity, "입력되지 않은 정보가 있습니다", Toast.LENGTH_LONG)
                         .show()
             }
-            viewModel.loginStatus.observe(this@SignUpActivity) {
-                if (it == true) {
+            viewModel.signUpStatus.observe(this@SignUpActivity) {
+                if (it) {
                     val intent = Intent(this@SignUpActivity, SignInActivity::class.java).apply {
-                        putExtra("id", etId.text)
-                        putExtra("password", etPassword.text)
+                        putExtra("id", viewModel.email.value)
+                        putExtra("password", viewModel.password.value)
                     }
                     setResult(RESULT_OK, intent)
                     if (!isFinishing) finish()
