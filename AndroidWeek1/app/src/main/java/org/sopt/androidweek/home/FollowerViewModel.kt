@@ -18,7 +18,7 @@ class FollowerViewModel : ViewModel() {
         loadFollowerApi()
     }
 
-    private fun loadFollowerApi(): List<FollowerDao> {
+    private fun loadFollowerApi() {
         var list = emptyList<FollowerDao>()
         viewModelScope.launch {
             try {
@@ -35,6 +35,5 @@ class FollowerViewModel : ViewModel() {
             } catch (e: Exception) {
             }
         }
-        return list
     }
 }

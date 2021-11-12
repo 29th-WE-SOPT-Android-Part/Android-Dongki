@@ -15,5 +15,4 @@ interface GitService {
     suspend fun getUserInfo(
         @Path("username") userName : String
     ) : FollowerDao
-
 }
