@@ -1,8 +1,13 @@
 package org.sopt.androidweek.home
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
+import kotlinx.coroutines.*
+import org.sopt.androidweek.repository.network.GitCreator
+import java.lang.Exception
 
 class FollowerViewModel : ViewModel() {
     private val _followerList = MutableLiveData<List<FollowerDao>>()
@@ -10,19 +15,26 @@ class FollowerViewModel : ViewModel() {
         get() = _followerList
 
     init {
-        _followerList.value = loadFollower()
+        loadFollowerApi()
     }
 
-
-    private fun loadFollower() : List<FollowerDao>{
-        val contentStr =
-            "가나다라마바사아자차카타파하가나다라마바사아자차카타파하" +
-                    "가나다라마바사아자차카타파하가나다라마바사아자차카타"
-        return (1..9).map { i ->
-            FollowerDao(
-                "이동기$i",
-                contentStr+ contentStr
-            )
+    private fun loadFollowerApi(): List<FollowerDao> {
+        var list = emptyList<FollowerDao>()
+        viewModelScope.launch {
+            try {
+                val copyList = mutableListOf<FollowerDao>()
+                list = GitCreator.gitService.getGitHubFollowers("rkdmf1026")
+                for (follower in list)
+                    copyList.add(
+                        FollowerDao(
+                            follower.name,
+                            GitCreator.gitService.getUserInfo(follower.name).introduction
+                        )
+                    )
+                _followerList.postValue(copyList)
+            } catch (e: Exception) {
+            }
         }
+        return list
     }
 }
