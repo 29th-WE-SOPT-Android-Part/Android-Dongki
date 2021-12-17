@@ -9,7 +9,7 @@ import androidx.fragment.app.viewModels
 import org.sopt.androidweek.DetailActivity
 import org.sopt.androidweek.R
 import org.sopt.androidweek.databinding.FollowerFragmentBinding
-import org.sopt.androidweek.util.BaseFragment
+import org.sopt.androidweek.util.base.BaseFragment
 import org.sopt.androidweek.util.VerticalItemDecorator
 
 class FollowerFragment : BaseFragment<FollowerFragmentBinding>(R.layout.follower_fragment) {

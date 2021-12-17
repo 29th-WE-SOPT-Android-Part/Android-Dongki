@@ -1,15 +1,15 @@
 package org.sopt.androidweek.home
 
+import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import org.sopt.androidweek.PreferenceActivity
 import org.sopt.androidweek.R
 import org.sopt.androidweek.databinding.FragmentProfileBinding
-import org.sopt.androidweek.util.BaseFragment
-import org.sopt.androidweek.util.setImage
+import org.sopt.androidweek.util.base.BaseFragment
 
 
 class ProfileFragment : BaseFragment<FragmentProfileBinding>(R.layout.fragment_profile) {
@@ -41,6 +41,11 @@ class ProfileFragment : BaseFragment<FragmentProfileBinding>(R.layout.fragment_p
             childFragmentManager.beginTransaction()
                 .replace(R.id.container_profile, RepositoryFragment())
                 .commit()
+        }
+
+        binding.ivProfile.setOnClickListener {
+            val intent = Intent(requireActivity(), PreferenceActivity::class.java)
+            startActivity(intent)
         }
 
 

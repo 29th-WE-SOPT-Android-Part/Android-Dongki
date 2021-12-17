@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation_onboard"
+    app:startDestination="@id/firstFragment">
+
+    <fragment
+        android:id="@+id/firstFragment"
+        android:name="org.sopt.androidweek.onboard.FirstOnBoardFragment"
+        tools:layout="@layout/fragment_first_on_board">
+        <action
+            android:id="@+id/action_first_fragment_to_second_fragment"
+            app:destination="@id/second_fragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/second_fragment"
+        android:name="org.sopt.androidweek.onboard.SecondOnBoardFragment"
+        tools:layout="@layout/fragment_second_on_board">
+        <action
+            android:id="@+id/action_second_fragment_to_third_fragment"
+            app:destination="@id/third_fragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/third_fragment"
+        android:name="org.sopt.androidweek.onboard.ThirdOnBoardFragment"
+        tools:layout="@layout/fragment_third_on_board">
+        <action
+            android:id="@+id/action_third_fragment_to_sign_in_activity"
+            app:destination="@id/sign_in_activity" />
+    </fragment>
+
+    <activity
+        android:id="@+id/sign_in_activity"
+        android:name="org.sopt.androidweek.sign.SignInActivity"
+        tools:layout="@layout/activity_sign_in" />
+
+</navigation>
