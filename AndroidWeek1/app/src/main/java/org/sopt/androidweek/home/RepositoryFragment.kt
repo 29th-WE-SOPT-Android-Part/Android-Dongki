@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import org.sopt.androidweek.R
 import org.sopt.androidweek.databinding.RepositoryFragmentBinding
-import org.sopt.androidweek.util.BaseFragment
+import org.sopt.androidweek.util.base.BaseFragment
 
 class RepositoryFragment : BaseFragment<RepositoryFragmentBinding>(R.layout.repository_fragment) {
     private val repositoryViewModel by viewModels<RepositoryViewModel>()

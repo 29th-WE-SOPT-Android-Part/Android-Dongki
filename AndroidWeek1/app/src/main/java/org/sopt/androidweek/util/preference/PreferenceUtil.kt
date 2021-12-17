@@ -1,4 +1,4 @@
-package org.sopt.androidweek.util
+package org.sopt.androidweek.util.preference
 
 import android.content.Context
 import android.content.SharedPreferences

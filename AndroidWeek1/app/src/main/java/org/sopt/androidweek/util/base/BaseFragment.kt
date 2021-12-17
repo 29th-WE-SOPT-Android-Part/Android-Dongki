@@ -1,4 +1,4 @@
-package org.sopt.androidweek.util
+package org.sopt.androidweek.util.base
 
 import android.os.Bundle
 import android.view.LayoutInflater

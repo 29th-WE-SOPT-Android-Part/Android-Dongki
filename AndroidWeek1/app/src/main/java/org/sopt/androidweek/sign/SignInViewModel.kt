@@ -7,7 +7,7 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
 import org.sopt.androidweek.repository.dto.request.SignInRequest
 import org.sopt.androidweek.repository.network.SampleCreator
-import org.sopt.androidweek.util.Application
+import org.sopt.androidweek.util.preference.Application
 
 class SignInViewModel : ViewModel() {
     val loginStatus = MutableLiveData(false)
