@@ -34,7 +34,7 @@
 
     <activity
         android:id="@+id/sign_in_activity"
-        android:name="org.sopt.androidweek.SignInActivity"
+        android:name="org.sopt.androidweek.sign.SignInActivity"
         tools:layout="@layout/activity_sign_in" />
 
 </navigation>
