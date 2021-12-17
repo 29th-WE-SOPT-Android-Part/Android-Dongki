@@ -10,7 +10,8 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AndroidWeek1">
+        android:theme="@style/Theme.AndroidWeek1"
+        android:usesCleartextTraffic="true">
         <activity
             android:name=".PreferenceActivity"
             android:exported="true" />
@@ -27,14 +28,25 @@
             android:name=".DetailActivity"
             android:exported="true" />
         <activity
-            android:name=".SignUpActivity"
+            android:name=".sign.SignUpActivity"
             android:exported="true" />
         <activity
             android:name=".home.HomeActivity"
             android:exported="true" />
         <activity
+<<<<<<< HEAD
             android:name=".SignInActivity"
             android:exported="true"></activity>
+=======
+            android:name=".sign.SignInActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+>>>>>>> main
     </application>
 
 </manifest>
