@@ -12,9 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidWeek1"
         android:usesCleartextTraffic="true">
-        <activity
-            android:name=".PreferenceActivity"
-            android:exported="true" />
+
         <activity
             android:name=".onboard.OnBoardActivity"
             android:exported="true">
@@ -34,19 +32,8 @@
             android:name=".home.HomeActivity"
             android:exported="true" />
         <activity
-<<<<<<< HEAD
-            android:name=".SignInActivity"
-            android:exported="true"></activity>
-=======
             android:name=".sign.SignInActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
->>>>>>> main
+            android:exported="true"></activity>
     </application>
 
 </manifest>
